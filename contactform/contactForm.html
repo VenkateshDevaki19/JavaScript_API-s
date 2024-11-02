@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="contactForm.css">
+</head>
+<body>
+
+    <div class="contact-form-container">
+        <h2>Contact us</h2>
+        <form id="contactform">
+            <div class="formgroup">
+                <label for="Name">Name</label>
+                <input type="text" id="name" placeholder="Your Name">
+                <span class="error-message" id="nameerror"></span>
+            </div>
+
+            <div class="formgroup">
+                <label for="Name">Subject</label>
+                <input type="text" id="Subject" placeholder="Your Subject">
+                <span class="error-message" id="subject-error"></span>
+            </div>
+
+            <div class="formgroup">
+                <label for="Name">Email</label>
+                <input type="email" id="email" placeholder="Your email">
+                <span class="error-message" id="emailerror"></span>
+            </div>
+
+            <div class="formgroup">
+                <label for="Name">Phone No</label>
+                <input type="number" id="PhoneNumber" placeholder="Your Phone number">
+                <span class="error-message" id="Phoneerror"></span>
+            </div>
+
+            <div class="formgroup">
+                <label for="Name">Text Area</label>
+                <textarea id="message" 
+                name="message" 
+                placeholder="Your Message" 
+                rows="5"></textarea>
+                <span class="=" id="messageerror"></span>
+            </div>
+
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+    </div>
+
+    <script src="contactForm.js"></script>
+    
+</body>
+</html>
