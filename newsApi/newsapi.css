@@ -1,0 +1,77 @@
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container{
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+h1{
+    text-align: center;
+    color: #333;
+}
+
+label{
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+select, input{
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: calc(50%-22px);
+}
+
+select{
+    width: calc(50%-22px);
+}
+
+input[type = 'text']{
+    width: calc(100%-22px);
+}
+
+#loading{ 
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #007BFF;
+}
+
+.news-card{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #000;
+    color: #f4f4f4;
+}
+
+.news-card h2{
+    margin: 0 0 10px;
+}
+
+.news-card p{
+    margin: 0;
+}
+
+.news-card a{
+    display: inline-block;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.news-card a:hover{
+    text-decoration: underline;
+}
