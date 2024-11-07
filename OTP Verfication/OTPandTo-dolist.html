@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTPLogin</title>
+    <link rel="stylesheet" href="OTPandTo-dolist.css">
+</head>
+<body>
+    <div class="container" id="email-page">
+        <h2>Email Login</h2>
+        <input type="email" id="email" placeholder="Enter your Email">
+        <button onclick="showOTPPage()">Next</button>
+        <span class="email-error" id="email-error"></span>
+    </div>
+
+    <!-- otp inputs values entry -->
+
+    <div class="container hidden" id="otp-page">
+        <h2>Enter OTP</h2>
+        <p class="otp-emailNote">Please check your mail for OTP</p>
+        <div class="otp-container">
+            <input type="text" id="otp1" maxlength="1">
+            <input type="text" id="otp2" maxlength="1">
+            <input type="text" id="otp3" maxlength="1">
+            <input type="text" id="otp4" maxlength="1">
+        </div>
+
+        <p>Random OTP: <span id="generated-otp"></span></p>
+        <p class="link" onclick="resendOTP()">Resend OTP</p>
+        <button onclick="VerifyOTP()">Verify OTP</button>
+        <span class="user-login" id="user-login"></span>
+    </div>
+
+    <div class="container hidden" id="todo-page">
+        <h2>To-Do List</h2>
+        <input type="text" id="new-task" placeholder="Add new task">
+        <select name="priority" id="task-priority">
+            <option value="low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="high">high</option>
+        </select>
+        <button onclick="addTask()">Add</button>
+        <ul id="task-list"></ul>
+        <button onclick="deleteAllTask()">Delete All</button>
+    </div>
+
+
+    <script src="OTPandTo-dolist.js"></script>
+</body>
+</html>
