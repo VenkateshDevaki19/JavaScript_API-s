@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Clone</title>
+    <link rel="stylesheet" href="insta.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Reels</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- story section -->
+     <div class="story-section">
+        <div class="story-container" id="storyItems">
+            <!-- story items will be dynamically added here -->
+        </div>
+        <div class="story-upload">
+            <label for="storyImageInput" class="add-story-label">
+                <span class="add-icon">+</span>Add Story
+                <input type="file" id="storyImageInput" accept="image/*" style="display: none;">
+            </label>
+        </div>
+     </div>
+
+    <div class="container">
+        <h2>Instagram Clone</h2>
+        <main>
+            <div class="postInput">
+                <input type="text" id="postTitle" class="postTitle" placeholder="Post Title">
+                <textarea name="text" id="postTextArea" placeholder="What's on your mind?"></textarea>
+                <input type="file" name="postImage" id="postImage" multiple>
+                <button id="CreatePost">Create Post</button>
+            </div>
+            
+            <div class="postContainer" id="postContainer">
+                <!-- postTitle,postTextArea,postImage will store in this container div -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Model for viewing stories -->
+     <div class="story-model" id="storyModal">
+        <div class="model-content">
+            <img src="" alt="Full Story" class="full-story-image" id="fullStoryImage">
+            <span class="close-modal" id="closeModal">&times;</span>
+        </div>
+     </div>
+    <script src="insta.js"></script>
+</body>
+</html>
