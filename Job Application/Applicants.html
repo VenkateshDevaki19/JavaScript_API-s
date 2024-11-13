@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicants Page</title>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            /* background-color: #24252A; */
+        }
+
+        header{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 30px 10px;
+            background-color: rgb(3, 21, 21);
+        }
+
+        nav a{
+            list-style: none;
+            font-size: 1.5rem;
+            display: inline-block;
+            color: white;
+        }
+        nav a:hover{
+            color: #0088a9;
+        }
+
+        .container{
+            padding: 20px;
+            margin: 20px;
+        }
+
+        /* .changeColor{
+            background-color: green;
+        } */
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="homeIndex.html">Home</a>
+        </nav>
+
+        <nav>
+            <a href="Applicants.html">Applicants</a>
+        </nav>
+
+        <nav>
+            <a href="shortList.html">Shortlisted Candidates</a>
+        </nav>
+    </header>
+    <div class="container">
+        <table border="1">
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Salary</th>
+                <th>Select</th>
+            </thead>
+            <tbody>
+                <!-- filling the data from js code logic -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let jobArray = JSON.parse(localStorage.getItem('JobList'));
+
+        jobArray.forEach(
+            function (elem){
+                let tr = document.createElement('tr');
+
+                let td1 = document.createElement('td');
+                td1.innerHTML = elem.personName;
+
+                let td2 = document.createElement('td');
+                td2.innerHTML = elem.personEmail;
+
+                let td3 = document.createElement('td');
+                td3.innerHTML = elem.personRole;
+
+                let td4 = document.createElement('td');
+                td4.innerHTML = elem.personSalary;
+
+                let td5 = document.createElement('td');
+                td5.innerHTML = "Select";
+                // td5.setAttribute("class", "changeColor");
+                // td5.style.backgroundColor = changeColor;
+
+                tr.append(td1,td2,td3,td4,td5);
+
+                document.querySelector("tbody").append(tr);
+
+                td5.addEventListener('click', function(){
+                    addBookmark(elem);
+                    changeColor(tr);
+                    td5.innerHTML = "Selected";
+                    tr.style.color = "white";
+                });
+            }
+        );
+
+        function addBookmark(elem){
+            showBookmark.push(elem);
+            localStorage.setItem('Bookmarks', JSON.stringify(showBookmark));
+        }
+
+        let showBookmark = JSON.parse(localStorage.getItem('Bookmarks')) || [];
+
+        console.log(showBookmark)
+
+        function changeColor(elem){
+            elem.style.backgroundColor= "green";
+        }
+
+
+
+    </script>
+</body>
+</html>

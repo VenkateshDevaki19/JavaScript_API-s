@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            /* background-color: #24252A; */
+        }
+
+        header{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 30px 10px;
+            background-color: rgb(3, 21, 21);
+        }
+
+        nav a{
+            list-style: none;
+            font-size: 1.5rem;
+            display: inline-block;
+            color: white;
+            padding-right: 15px;
+        }
+        nav a:hover{
+            color: #0088a9;
+        }
+
+        h2{
+            text-align: center;
+        }
+
+        .form{
+            /* background-color: rgb(68, 139, 168); */
+            /* width: 500px; */
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .container{
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        form div{
+            width: 100%;
+            padding: 10px;
+            margin: 2px;
+        }
+
+        form div label{
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+
+        input,select{
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        input[type=submit]{
+            padding: 10px 30px;
+            background-color: rgb(192, 188, 223);
+            color: white;
+            font-size: 15px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover{
+            background-color: rgba(12, 233, 241, 0.915);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="homeIndex.html">Home</a>
+        </nav>
+
+        <nav>
+            <a href="Applicants.html">Applicants</a>
+        </nav>
+
+        <nav>
+            <a href="shortList.html">Shortlisted Candidates</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Enter your application details</h2>
+
+        <form id="form">
+            <div class="name_id">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your Name" required>
+            </div>
+
+            <div class="email_id">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Your Email" required>
+            </div>
+
+            <div class="salary_id">
+                <label for="salary">Salary</label>
+                <input type="number" id="salary" placeholder="Salary Expected" required>
+            </div>
+
+            <div class="course_id">
+                <select name="course" id="course" required>
+                    <option value="">Select Course</option>
+                    <option value="fsd">FSD</option>
+                    <option value="Frontend">FrontEnd</option>
+                    <option value="backend">Backend</option>
+                </select>
+            </div>
+
+            <div class="submit_id">
+                <input type="submit" value="submit">
+                 <!-- <button>Submit</button> onclick="jobSubmit()" -->
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('#form').addEventListener('submit', jobSubmit);
+    
+        let jobArray;
+    
+        function jobSubmit(){
+
+            event.preventDefault();
+    
+            let jobObject = {
+                personName: document.querySelector("#name").value,
+                personEmail: document.querySelector("#email").value,
+                personRole: document.querySelector("#course").value,
+                personSalary: document.querySelector("#salary").value
+                //form.div.email.value
+            };
+    
+            jobArray.push(jobObject);
+
+            console.log(jobArray);
+    
+            localStorage.setItem('JobList', JSON.stringify(jobArray));
+
+            document.querySelector("#name").value = '';
+            document.querySelector("#email").value ='';
+            document.querySelector("#course").value = '';
+            document.querySelector("#salary").value = '';
+
+        };
+
+        if(localStorage.getItem('JobList') !== null){
+            jobArray= JSON.parse(localStorage.getItem('JobList'));
+        }else{
+            jobArray = [];
+        }
+
+        // window.location.href='Applicants.html';
+
+    </script>
+</body>
+</html>
