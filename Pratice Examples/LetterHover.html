@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Hover</title>
+    <style>
+        body{
+            background-color: #D1D1D1;
+        }
+
+        h1{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 110px;
+            text-align: center;
+            color: #52528C;
+            margin-top: 250px;
+        }
+
+        .bounce{
+            animation-name: bounce;
+        }
+
+        .bouncing-letters span{
+            animation-timing-function: linear;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            display: block;
+        }
+
+        .bouncing-letters span:hover { 
+            color: #372554; 
+        }
+        @keyframes bounce {
+            
+            20%,
+            50%,
+            80%,
+            to{
+                transform: scale(1,1);
+            }
+
+            40%{
+                transform: scale(1.75, 0.65);
+            }
+
+            45%{
+                transform: scale(1.75, 0.65);
+            }
+
+            70%{
+                transform: scale(1.25, 0.75);
+            }
+
+            40%{
+                transform: scale(1.15, 0.85);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="bouncing-letters" style="letter-spacing: 0.3px;">
+        <span>V</span>
+        <span>E</span>
+        <span>N</span>
+        <span>K</span>
+        <span>Y</span>
+    </h1>
+
+    <SCript>
+        document.querySelectorAll(".bouncing-letters > span")
+        .forEach((element) =>{
+            element.addEventListener("mouseover", (e) => bounce(e.target));
+        });
+
+        function bounce(letter){
+            if(!letter.classList.contains("bounce")){
+                letter.classList.add('bounce');
+                setTimeout(function (){
+                    letter.classList.remove("bounce");
+                },1000);
+            }
+        }
+    </SCript>
+</body>
+</html>
+

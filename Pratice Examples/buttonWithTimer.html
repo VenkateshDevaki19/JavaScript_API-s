@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button With Timer</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        h1{
+            color: green;
+        }
+
+        #downloadbtn{
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #countdown{
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Button With Timer</h1>
+
+    <h4>This is a download button with a timer attached </h4>
+
+    <button id="downloadbtn">Download</button>
+
+    <div id="countdown"></div>
+
+    <script>
+        const downloadBtn = document.getElementById('downloadbtn');
+        const countdown = document.getElementById('countdown');
+        const downloadLink = "download_content/sample_text_file.txt"; 
+
+        let timer;
+        let countdownTime = 5;
+
+        downloadBtn.addEventListener('click', function () {
+            countdown.style.display='block';
+
+            timer = setInterval(function () {
+
+                if(countdownTime<=0){
+                    clearInterval(timer);
+                    countdown.innerHTML = 'downloading.....'
+                    setTimeout(function (){
+                        const a = document.createElement('a');
+                        a.style.display = 'none';
+                        a.href = downloadLink;
+                        a.setAttribute('download','');
+                        document.body.append(a);
+                        a.click();
+                    },1000);
+                }else{
+                    countdown.innerHTML = `Starting download in ${countdownTime} seconds...`; 
+                }
+                countdownTime--;
+                }, 1000);
+        });
+    </script>
+    
+</body>
+</html>
